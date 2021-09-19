@@ -2,7 +2,7 @@ const state = {
 	todos: []
 };
 const getters = {
-	allTodos: state => state.todos
+	allTodos: (state) => state.todos
 };
 const actions = {
 	async fetchTodos({ commit }) {
@@ -66,9 +66,9 @@ const mutations = {
 	setTodos: (state, todos) => (state.todos = todos),
 	newTodo: (state, todo) => state.todos.unshift(todo),
 	removeTodo: (state, id) =>
-		(state.todos = state.todos.filter(todo => todo.id !== id)),
+		(state.todos = state.todos.filter((todo) => todo.id !== id)),
 	updTodo: (state, todo) => {
-		let index = state.todos.findIndex(item => item.id === todo.id);
+		let index = state.todos.findIndex((item) => item.id === todo.id);
 		if (index !== -1) {
 			state.todos.splice(index, 1, todo);
 		}
